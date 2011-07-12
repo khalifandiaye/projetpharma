@@ -1,6 +1,7 @@
-// default package
-// Generated 27 avr. 2011 12:11:52 by Hibernate Tools 3.4.0.CR1
 package corepharma.domain;
+
+// default package
+// Generated 12 juil. 2011 22:37:21 by Hibernate Tools 3.3.0.GA
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,18 +23,24 @@ public class Utilisateurs implements java.io.Serializable {
 	private String prenom;
 	private String tel;
 	private String email;
+	private String pseudo;
 	private String motdepasse;
 
 	public Utilisateurs() {
 	}
 
+	public Utilisateurs(String pseudo) {
+		this.pseudo = pseudo;
+	}
+
 	public Utilisateurs(Integer idCategorie, String nom, String prenom,
-			String tel, String email, String motdepasse) {
+			String tel, String email, String pseudo, String motdepasse) {
 		this.idCategorie = idCategorie;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.tel = tel;
 		this.email = email;
+		this.pseudo = pseudo;
 		this.motdepasse = motdepasse;
 	}
 
@@ -91,6 +98,15 @@ public class Utilisateurs implements java.io.Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	@Column(name = "pseudo", nullable = false, length = 250)
+	public String getPseudo() {
+		return this.pseudo;
+	}
+
+	public void setPseudo(String pseudo) {
+		this.pseudo = pseudo;
 	}
 
 	@Column(name = "motdepasse", length = 254)

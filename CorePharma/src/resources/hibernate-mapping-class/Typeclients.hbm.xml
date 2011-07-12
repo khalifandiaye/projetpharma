@@ -3,13 +3,13 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 12 juil. 2011 22:46:19 by Hibernate Tools 3.3.0.GA -->
 <hibernate-mapping>
-    <class name="Categorieutilisateurs" table="categorieutilisateurs" catalog="corepharma">
-        <id name="idCategorie" type="java.lang.Integer">
-            <column name="idCategorie" />
+    <class name="Typeclients" table="typeclients" catalog="corepharma">
+        <id name="idType" type="java.lang.Integer">
+            <column name="idType" />
             <generator class="identity" />
         </id>
-        <property name="nomCategorie" type="string">
-            <column name="nomCategorie" length="254" />
+        <property name="nomType" type="string">
+            <column name="nomType" length="254" />
         </property>
     </class>
 </hibernate-mapping>

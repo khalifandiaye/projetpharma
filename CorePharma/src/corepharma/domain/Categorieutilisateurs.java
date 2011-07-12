@@ -1,6 +1,7 @@
-// default package
-// Generated 27 avr. 2011 12:11:52 by Hibernate Tools 3.4.0.CR1
 package corepharma.domain;
+
+// default package
+// Generated 12 juil. 2011 22:37:21 by Hibernate Tools 3.3.0.GA
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

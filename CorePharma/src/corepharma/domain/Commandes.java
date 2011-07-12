@@ -1,6 +1,7 @@
-// default package
-// Generated 15 juin 2011 16:02:56 by Hibernate Tools 3.4.0.CR1
 package corepharma.domain;
+
+// default package
+// Generated 12 juil. 2011 22:37:21 by Hibernate Tools 3.3.0.GA
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,46 +18,42 @@ import javax.persistence.Table;
 public class Commandes implements java.io.Serializable {
 
 	private Integer idCommande;
-	private Integer idClient;
 	private Integer idFournisseur;
+	private Integer idMode;
+	private Integer idClient;
 	private Integer idAlarme;
-	private String auteurModification;
+	private Integer idEtat;
 	private String numeroCommande;
-	private String fournisseurCommande;
 	private String etatCommande;
-	private Double acompte;
-	private Double soldeRestant;
 	private String dateLivraisonSouhaite;
 	private String dateLivraisonEffective;
-	private String responsableCommande;
 	private String dateCreation;
 	private String dateModification;
-	private String auteurCreation;
+	private Integer idAuteurCreation;
+	private Integer idAuteurModification;
 
 	public Commandes() {
 	}
 
-	public Commandes(Integer idClient, Integer idFournisseur, Integer idAlarme,
-			String auteurModification, String numeroCommande,
-			String fournisseurCommande, String etatCommande, Double acompte,
-			Double soldeRestant, String dateLivraisonSouhaite,
-			String dateLivraisonEffective, String responsableCommande,
-			String dateCreation, String dateModification, String auteurCreation) {
-		this.idClient = idClient;
+	public Commandes(Integer idFournisseur, Integer idMode, Integer idClient,
+			Integer idAlarme, Integer idEtat, String numeroCommande,
+			String etatCommande, String dateLivraisonSouhaite,
+			String dateLivraisonEffective, String dateCreation,
+			String dateModification, Integer idAuteurCreation,
+			Integer idAuteurModification) {
 		this.idFournisseur = idFournisseur;
+		this.idMode = idMode;
+		this.idClient = idClient;
 		this.idAlarme = idAlarme;
-		this.auteurModification = auteurModification;
+		this.idEtat = idEtat;
 		this.numeroCommande = numeroCommande;
-		this.fournisseurCommande = fournisseurCommande;
 		this.etatCommande = etatCommande;
-		this.acompte = acompte;
-		this.soldeRestant = soldeRestant;
 		this.dateLivraisonSouhaite = dateLivraisonSouhaite;
 		this.dateLivraisonEffective = dateLivraisonEffective;
-		this.responsableCommande = responsableCommande;
 		this.dateCreation = dateCreation;
 		this.dateModification = dateModification;
-		this.auteurCreation = auteurCreation;
+		this.idAuteurCreation = idAuteurCreation;
+		this.idAuteurModification = idAuteurModification;
 	}
 
 	@Id
@@ -70,15 +67,6 @@ public class Commandes implements java.io.Serializable {
 		this.idCommande = idCommande;
 	}
 
-	@Column(name = "idClient")
-	public Integer getIdClient() {
-		return this.idClient;
-	}
-
-	public void setIdClient(Integer idClient) {
-		this.idClient = idClient;
-	}
-
 	@Column(name = "idFournisseur")
 	public Integer getIdFournisseur() {
 		return this.idFournisseur;
@@ -86,6 +74,24 @@ public class Commandes implements java.io.Serializable {
 
 	public void setIdFournisseur(Integer idFournisseur) {
 		this.idFournisseur = idFournisseur;
+	}
+
+	@Column(name = "idMode")
+	public Integer getIdMode() {
+		return this.idMode;
+	}
+
+	public void setIdMode(Integer idMode) {
+		this.idMode = idMode;
+	}
+
+	@Column(name = "idClient")
+	public Integer getIdClient() {
+		return this.idClient;
+	}
+
+	public void setIdClient(Integer idClient) {
+		this.idClient = idClient;
 	}
 
 	@Column(name = "idAlarme")
@@ -97,13 +103,13 @@ public class Commandes implements java.io.Serializable {
 		this.idAlarme = idAlarme;
 	}
 
-	@Column(name = "auteurModification", length = 254)
-	public String getAuteurModification() {
-		return this.auteurModification;
+	@Column(name = "idEtat")
+	public Integer getIdEtat() {
+		return this.idEtat;
 	}
 
-	public void setAuteurModification(String auteurModification) {
-		this.auteurModification = auteurModification;
+	public void setIdEtat(Integer idEtat) {
+		this.idEtat = idEtat;
 	}
 
 	@Column(name = "numeroCommande", length = 254)
@@ -115,15 +121,6 @@ public class Commandes implements java.io.Serializable {
 		this.numeroCommande = numeroCommande;
 	}
 
-	@Column(name = "fournisseurCommande", length = 254)
-	public String getFournisseurCommande() {
-		return this.fournisseurCommande;
-	}
-
-	public void setFournisseurCommande(String fournisseurCommande) {
-		this.fournisseurCommande = fournisseurCommande;
-	}
-
 	@Column(name = "etatCommande", length = 254)
 	public String getEtatCommande() {
 		return this.etatCommande;
@@ -131,24 +128,6 @@ public class Commandes implements java.io.Serializable {
 
 	public void setEtatCommande(String etatCommande) {
 		this.etatCommande = etatCommande;
-	}
-
-	@Column(name = "acompte", precision = 22, scale = 0)
-	public Double getAcompte() {
-		return this.acompte;
-	}
-
-	public void setAcompte(Double acompte) {
-		this.acompte = acompte;
-	}
-
-	@Column(name = "soldeRestant", precision = 22, scale = 0)
-	public Double getSoldeRestant() {
-		return this.soldeRestant;
-	}
-
-	public void setSoldeRestant(Double soldeRestant) {
-		this.soldeRestant = soldeRestant;
 	}
 
 	@Column(name = "dateLivraisonSouhaite", length = 254)
@@ -169,15 +148,6 @@ public class Commandes implements java.io.Serializable {
 		this.dateLivraisonEffective = dateLivraisonEffective;
 	}
 
-	@Column(name = "responsableCommande", length = 254)
-	public String getResponsableCommande() {
-		return this.responsableCommande;
-	}
-
-	public void setResponsableCommande(String responsableCommande) {
-		this.responsableCommande = responsableCommande;
-	}
-
 	@Column(name = "dateCreation", length = 254)
 	public String getDateCreation() {
 		return this.dateCreation;
@@ -196,13 +166,22 @@ public class Commandes implements java.io.Serializable {
 		this.dateModification = dateModification;
 	}
 
-	@Column(name = "auteurCreation", length = 254)
-	public String getAuteurCreation() {
-		return this.auteurCreation;
+	@Column(name = "idAuteurCreation")
+	public Integer getIdAuteurCreation() {
+		return this.idAuteurCreation;
 	}
 
-	public void setAuteurCreation(String auteurCreation) {
-		this.auteurCreation = auteurCreation;
+	public void setIdAuteurCreation(Integer idAuteurCreation) {
+		this.idAuteurCreation = idAuteurCreation;
+	}
+
+	@Column(name = "idAuteurModification")
+	public Integer getIdAuteurModification() {
+		return this.idAuteurModification;
+	}
+
+	public void setIdAuteurModification(Integer idAuteurModification) {
+		this.idAuteurModification = idAuteurModification;
 	}
 
 }

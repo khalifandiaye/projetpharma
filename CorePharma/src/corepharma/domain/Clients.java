@@ -1,6 +1,9 @@
-// default package
-// Generated 27 avr. 2011 12:11:52 by Hibernate Tools 3.4.0.CR1
 package corepharma.domain;
+
+// default package
+// Generated 12 juil. 2011 22:37:21 by Hibernate Tools 3.3.0.GA
+
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,39 +19,45 @@ import javax.persistence.Table;
 @Table(name = "clients", catalog = "corepharma")
 public class Clients implements java.io.Serializable {
 
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6326957720536875171L;
+	
 	private Integer idClient;
+	private Integer idType;
+	private Integer idEtatClient;
 	private String nom;
 	private String prenom;
-	private Boolean etatClient;
 	private String tel;
 	private String email;
-	private Integer idNumeroCompte;
 	private String numeroIdentification;
-	private String typeClient;
 	private String dateCreation;
 	private String dateModification;
-	private String auteurCreation;
-	private String auteurModification;
+	private Integer idAuteurCreation;
+	private Integer idAuteurModification;
+	private Set<Commandes> commandesProduits;
 
 	public Clients() {
 	}
 
-	public Clients(String nom, String prenom, Boolean etatClient, String tel,
-			String email, Integer idNumeroCompte, String numeroIdentification,
-			String typeClient, String dateCreation, String dateModification,
-			String auteurCreation, String auteurModification) {
+	public Clients(Integer idType, Integer idEtatClient, String nom,
+			String prenom, String tel, String email,
+			String numeroIdentification, String dateCreation,
+			String dateModification, Integer idAuteurCreation,
+			Integer idAuteurModification) {
+		this.idType = idType;
+		this.idEtatClient = idEtatClient;
 		this.nom = nom;
 		this.prenom = prenom;
-		this.etatClient = etatClient;
 		this.tel = tel;
 		this.email = email;
-		this.idNumeroCompte = idNumeroCompte;
 		this.numeroIdentification = numeroIdentification;
-		this.typeClient = typeClient;
 		this.dateCreation = dateCreation;
 		this.dateModification = dateModification;
-		this.auteurCreation = auteurCreation;
-		this.auteurModification = auteurModification;
+		this.idAuteurCreation = idAuteurCreation;
+		this.idAuteurModification = idAuteurModification;
 	}
 
 	@Id
@@ -60,6 +69,24 @@ public class Clients implements java.io.Serializable {
 
 	public void setIdClient(Integer idClient) {
 		this.idClient = idClient;
+	}
+
+	@Column(name = "idType")
+	public Integer getIdType() {
+		return this.idType;
+	}
+
+	public void setIdType(Integer idType) {
+		this.idType = idType;
+	}
+
+	@Column(name = "idEtatClient")
+	public Integer getIdEtatClient() {
+		return this.idEtatClient;
+	}
+
+	public void setIdEtatClient(Integer idEtatClient) {
+		this.idEtatClient = idEtatClient;
 	}
 
 	@Column(name = "nom", length = 254)
@@ -80,15 +107,6 @@ public class Clients implements java.io.Serializable {
 		this.prenom = prenom;
 	}
 
-	@Column(name = "etatClient")
-	public Boolean getEtatClient() {
-		return this.etatClient;
-	}
-
-	public void setEtatClient(Boolean etatClient) {
-		this.etatClient = etatClient;
-	}
-
 	@Column(name = "tel", length = 254)
 	public String getTel() {
 		return this.tel;
@@ -107,15 +125,6 @@ public class Clients implements java.io.Serializable {
 		this.email = email;
 	}
 
-	@Column(name = "idNumeroCompte")
-	public Integer getIdNumeroCompte() {
-		return this.idNumeroCompte;
-	}
-
-	public void setIdNumeroCompte(Integer idNumeroCompte) {
-		this.idNumeroCompte = idNumeroCompte;
-	}
-
 	@Column(name = "numeroIdentification", length = 254)
 	public String getNumeroIdentification() {
 		return this.numeroIdentification;
@@ -123,15 +132,6 @@ public class Clients implements java.io.Serializable {
 
 	public void setNumeroIdentification(String numeroIdentification) {
 		this.numeroIdentification = numeroIdentification;
-	}
-
-	@Column(name = "typeClient", length = 254)
-	public String getTypeClient() {
-		return this.typeClient;
-	}
-
-	public void setTypeClient(String typeClient) {
-		this.typeClient = typeClient;
 	}
 
 	@Column(name = "dateCreation", length = 254)
@@ -152,22 +152,32 @@ public class Clients implements java.io.Serializable {
 		this.dateModification = dateModification;
 	}
 
-	@Column(name = "auteurCreation", length = 254)
-	public String getAuteurCreation() {
-		return this.auteurCreation;
+	@Column(name = "idAuteurCreation")
+	public Integer getIdAuteurCreation() {
+		return this.idAuteurCreation;
 	}
 
-	public void setAuteurCreation(String auteurCreation) {
-		this.auteurCreation = auteurCreation;
+	public void setIdAuteurCreation(Integer idAuteurCreation) {
+		this.idAuteurCreation = idAuteurCreation;
 	}
 
-	@Column(name = "auteurModification", length = 254)
-	public String getAuteurModification() {
-		return this.auteurModification;
+	@Column(name = "idAuteurModification")
+	public Integer getIdAuteurModification() {
+		return this.idAuteurModification;
 	}
 
-	public void setAuteurModification(String auteurModification) {
-		this.auteurModification = auteurModification;
+	public void setIdAuteurModification(Integer idAuteurModification) {
+		this.idAuteurModification = idAuteurModification;
 	}
 
+	public Set<Commandes> getCommandesProduits() {
+		return commandesProduits;
+	}
+
+	public void setCommandesProduits(Set<Commandes> commandesProduits) {
+		this.commandesProduits = commandesProduits;
+	}
+
+	
+	
 }

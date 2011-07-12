@@ -1,6 +1,7 @@
-// default package
-// Generated 27 avr. 2011 12:11:52 by Hibernate Tools 3.4.0.CR1
 package corepharma.domain;
+
+// default package
+// Generated 12 juil. 2011 22:37:21 by Hibernate Tools 3.3.0.GA
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -20,19 +21,17 @@ public class Pharmacies implements java.io.Serializable {
 	private String nomPharmacie;
 	private String codePharmacie;
 	private String numeroLicence;
-	private Integer nomProprietaire;
-	private Integer etatPharmacie;
+	private String nomProprietaire;
 
 	public Pharmacies() {
 	}
 
 	public Pharmacies(String nomPharmacie, String codePharmacie,
-			String numeroLicence, Integer nomProprietaire, Integer etatPharmacie) {
+			String numeroLicence, String nomProprietaire) {
 		this.nomPharmacie = nomPharmacie;
 		this.codePharmacie = codePharmacie;
 		this.numeroLicence = numeroLicence;
 		this.nomProprietaire = nomProprietaire;
-		this.etatPharmacie = etatPharmacie;
 	}
 
 	@Id
@@ -73,22 +72,13 @@ public class Pharmacies implements java.io.Serializable {
 		this.numeroLicence = numeroLicence;
 	}
 
-	@Column(name = "nomProprietaire")
-	public Integer getNomProprietaire() {
+	@Column(name = "nomProprietaire", length = 254)
+	public String getNomProprietaire() {
 		return this.nomProprietaire;
 	}
 
-	public void setNomProprietaire(Integer nomProprietaire) {
+	public void setNomProprietaire(String nomProprietaire) {
 		this.nomProprietaire = nomProprietaire;
-	}
-
-	@Column(name = "etatPharmacie")
-	public Integer getEtatPharmacie() {
-		return this.etatPharmacie;
-	}
-
-	public void setEtatPharmacie(Integer etatPharmacie) {
-		this.etatPharmacie = etatPharmacie;
 	}
 
 }
