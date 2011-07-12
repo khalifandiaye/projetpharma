@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 12 juil. 2011 22:46:19 by Hibernate Tools 3.3.0.GA -->
+<hibernate-mapping>
+    <class name="Assoventesproduits" table="assoventesproduits" catalog="corepharma">
+        <composite-id name="id" class="AssoventesproduitsId">
+            <key-property name="idVente" type="java.lang.Integer">
+                <column name="idVente" />
+            </key-property>
+            <key-property name="idProduit" type="java.lang.Integer">
+                <column name="idProduit" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

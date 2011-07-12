@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<package name="commandes" extends="struts-default">
+		<action name="">
+			<result name="success"></result>
+		</action>
+		<action name="addCommande" class="corepharma.action.CommandesAction"
+			method="addCommande">
+			<result name="input"></result>
+			<result name="success"></result>
+		</action>
+	</package>
+</struts>

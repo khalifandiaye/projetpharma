@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 15 juin 2011 16:02:57 by Hibernate Tools 3.4.0.CR1 -->
-<hibernate-mapping package="corepharma.domain">
+<!-- Generated 12 juil. 2011 22:46:19 by Hibernate Tools 3.3.0.GA -->
+<hibernate-mapping>
     <class name="Comptesbancaires" table="comptesbancaires" catalog="corepharma">
         <id name="idCompte" type="java.lang.Integer">
             <column name="idCompte" />
@@ -17,8 +17,8 @@
         <property name="numeroCompte" type="string">
             <column name="numeroCompte" length="254" />
         </property>
-        <property name="rib" type="string">
-            <column name="rib" length="254" />
+        <property name="cleRib" type="string">
+            <column name="cleRib" length="254" />
         </property>
         <property name="iban" type="string">
             <column name="iban" length="254" />

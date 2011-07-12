@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 15 juin 2011 16:02:57 by Hibernate Tools 3.4.0.CR1 -->
-<hibernate-mapping package="corepharma.domain">
+<!-- Generated 12 juil. 2011 22:46:19 by Hibernate Tools 3.3.0.GA -->
+<hibernate-mapping>
     <class name="Produits" table="produits" catalog="corepharma">
         <id name="idProduit" type="java.lang.Integer">
             <column name="idProduit" />
@@ -35,11 +35,11 @@
         <property name="dateModification" type="string">
             <column name="dateModification" length="254" />
         </property>
-        <property name="auteurCreation" type="string">
-            <column name="auteurCreation" length="254" />
+        <property name="idAuteurCreation" type="java.lang.Integer">
+            <column name="idAuteurCreation" />
         </property>
-        <property name="auteurModification" type="string">
-            <column name="auteurModification" length="254" />
+        <property name="idAuteurModification" type="java.lang.Integer">
+            <column name="idAuteurModification" />
         </property>
     </class>
 </hibernate-mapping>

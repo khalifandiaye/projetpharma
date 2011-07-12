@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+	<type-mapping>
+		<sql-type jdbc-type="VARCHAR" hibernate-type="string"></sql-type>
+		<sql-type jdbc-type="VARCHAR" hibernate-type="string"></sql-type>
+		<sql-type jdbc-type="VARCHAR" hibernate-type="string"></sql-type>
+		<sql-type jdbc-type="VARCHAR" hibernate-type="string"></sql-type>
+		<sql-type jdbc-type="VARCHAR" hibernate-type="string"></sql-type>
+		<sql-type jdbc-type="VARCHAR" hibernate-type="string"></sql-type>
+		<sql-type jdbc-type="VARCHAR" hibernate-type="string"></sql-type>
+		<sql-type jdbc-type="VARCHAR" hibernate-type="string"></sql-type>
+		<sql-type jdbc-type="VARCHAR" hibernate-type="string"></sql-type>
+		<sql-type jdbc-type="VARCHAR" hibernate-type="string"></sql-type>
+		<sql-type jdbc-type="VARCHAR" hibernate-type="string"></sql-type>
+		<sql-type jdbc-type="VARCHAR" hibernate-type="string"></sql-type>
+		<sql-type jdbc-type="VARCHAR" hibernate-type="string"></sql-type>
+		<sql-type jdbc-type="VARCHAR" hibernate-type="string"></sql-type>
+		<sql-type jdbc-type="VARCHAR" hibernate-type="string"></sql-type>
+		<sql-type jdbc-type="VARCHAR" hibernate-type="string"></sql-type>
+		<sql-type jdbc-type="VARCHAR" hibernate-type="string"></sql-type>
+		<sql-type jdbc-type="VARCHAR" hibernate-type="string"></sql-type>
+		<sql-type jdbc-type="VARCHAR" hibernate-type="string"></sql-type>
+	</type-mapping>
+	<table-filter match-name="alarmes" match-catalog="corepharma"></table-filter>
+	<table-filter match-name="assoclientscomptesbancaires"
+		match-catalog="corepharma">
+	</table-filter>
+	<table-filter match-name="assocommandesproduits"
+		match-catalog="corepharma">
+	</table-filter>
+	<table-filter match-name="assosfournisseurscomptesbancaires"
+		match-catalog="corepharma">
+	</table-filter>
+	<table-filter match-name="assoventesproduits"
+		match-catalog="corepharma">
+	</table-filter>
+	<table-filter match-name="categorieutilisateurs"
+		match-catalog="corepharma">
+	</table-filter>
+	<table-filter match-name="clients" match-catalog="corepharma"></table-filter>
+	<table-filter match-name="commandes" match-catalog="corepharma"></table-filter>
+	<table-filter match-name="comptesbancaires"
+		match-catalog="corepharma">
+	</table-filter>
+	<table-filter match-name="etatalarme" match-catalog="corepharma"></table-filter>
+	<table-filter match-name="fournisseurs"
+		match-catalog="corepharma">
+	</table-filter>
+	<table-filter match-name="modedereglement"
+		match-catalog="corepharma">
+	</table-filter>
+	<table-filter match-name="pharmacies" match-catalog="corepharma"></table-filter>
+	<table-filter match-name="produits" match-catalog="corepharma"></table-filter>
+	<table-filter match-name="typeclients" match-catalog="corepharma"></table-filter>
+	<table-filter match-name="typeetatclient"
+		match-catalog="corepharma">
+	</table-filter>
+	<table-filter match-name="typeetatcommande"
+		match-catalog="corepharma">
+	</table-filter>
+	<table-filter match-name="utilisateurs"
+		match-catalog="corepharma">
+	</table-filter>
+	<table-filter match-name="ventes" match-catalog="corepharma"></table-filter>
+	<table catalog="corepharma" name="assocommandesproduits"></table>
+	<table catalog="corepharma" name="assoventesproduits"></table>
+	<table catalog="corepharma" name="utilisateurs"></table>
+	<table catalog="corepharma" name="alarmes"></table>
+	<table catalog="corepharma" name="pharmacies"></table>
+	<table catalog="corepharma" name="typeetatclient"></table>
+	<table catalog="corepharma" name="typeclients"></table>
+	<table catalog="corepharma"
+		name="assosfournisseurscomptesbancaires">
+	</table>
+	<table catalog="corepharma" name="clients"></table>
+	<table catalog="corepharma" name="assoclientscomptesbancaires"></table>
+	<table catalog="corepharma" name="comptesbancaires"></table>
+	<table catalog="corepharma" name="ventes"></table>
+	<table catalog="corepharma" name="modedereglement"></table>
+	<table catalog="corepharma" name="fournisseurs"></table>
+	<table catalog="corepharma" name="produits"></table>
+	<table catalog="corepharma" name="typeetatcommande"></table>
+	<table catalog="corepharma" name="categorieutilisateurs"></table>
+	<table catalog="corepharma" name="commandes"></table>
+	<table catalog="corepharma" name="etatalarme"></table>
+</hibernate-reverse-engineering>

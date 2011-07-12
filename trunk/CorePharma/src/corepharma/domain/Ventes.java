@@ -1,6 +1,7 @@
-// default package
-// Generated 27 avr. 2011 12:11:52 by Hibernate Tools 3.4.0.CR1
 package corepharma.domain;
+
+// default package
+// Generated 12 juil. 2011 22:37:21 by Hibernate Tools 3.3.0.GA
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,11 +18,11 @@ import javax.persistence.Table;
 public class Ventes implements java.io.Serializable {
 
 	private Integer idVente;
-	private Integer etatVente;
+	private Integer idMode;
 	private String dateCreation;
 	private String dateModification;
-	private String auteurCreation;
-	private String auteurModification;
+	private Integer idAuteurCreation;
+	private Integer idAuteurModification;
 	private String codeVente;
 	private Integer montantRecu;
 	private Integer montantVente;
@@ -29,15 +30,14 @@ public class Ventes implements java.io.Serializable {
 	public Ventes() {
 	}
 
-	public Ventes(Integer etatVente, String dateCreation,
-			String dateModification, String auteurCreation,
-			String auteurModification, String codeVente, Integer montantRecu,
-			Integer montantVente) {
-		this.etatVente = etatVente;
+	public Ventes(Integer idMode, String dateCreation, String dateModification,
+			Integer idAuteurCreation, Integer idAuteurModification,
+			String codeVente, Integer montantRecu, Integer montantVente) {
+		this.idMode = idMode;
 		this.dateCreation = dateCreation;
 		this.dateModification = dateModification;
-		this.auteurCreation = auteurCreation;
-		this.auteurModification = auteurModification;
+		this.idAuteurCreation = idAuteurCreation;
+		this.idAuteurModification = idAuteurModification;
 		this.codeVente = codeVente;
 		this.montantRecu = montantRecu;
 		this.montantVente = montantVente;
@@ -54,13 +54,13 @@ public class Ventes implements java.io.Serializable {
 		this.idVente = idVente;
 	}
 
-	@Column(name = "etatVente")
-	public Integer getEtatVente() {
-		return this.etatVente;
+	@Column(name = "idMode")
+	public Integer getIdMode() {
+		return this.idMode;
 	}
 
-	public void setEtatVente(Integer etatVente) {
-		this.etatVente = etatVente;
+	public void setIdMode(Integer idMode) {
+		this.idMode = idMode;
 	}
 
 	@Column(name = "dateCreation", length = 254)
@@ -81,22 +81,22 @@ public class Ventes implements java.io.Serializable {
 		this.dateModification = dateModification;
 	}
 
-	@Column(name = "auteurCreation", length = 254)
-	public String getAuteurCreation() {
-		return this.auteurCreation;
+	@Column(name = "idAuteurCreation")
+	public Integer getIdAuteurCreation() {
+		return this.idAuteurCreation;
 	}
 
-	public void setAuteurCreation(String auteurCreation) {
-		this.auteurCreation = auteurCreation;
+	public void setIdAuteurCreation(Integer idAuteurCreation) {
+		this.idAuteurCreation = idAuteurCreation;
 	}
 
-	@Column(name = "auteurModification", length = 254)
-	public String getAuteurModification() {
-		return this.auteurModification;
+	@Column(name = "idAuteurModification")
+	public Integer getIdAuteurModification() {
+		return this.idAuteurModification;
 	}
 
-	public void setAuteurModification(String auteurModification) {
-		this.auteurModification = auteurModification;
+	public void setIdAuteurModification(Integer idAuteurModification) {
+		this.idAuteurModification = idAuteurModification;
 	}
 
 	@Column(name = "codeVente", length = 254)

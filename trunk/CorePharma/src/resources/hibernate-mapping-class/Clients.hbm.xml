@@ -1,48 +1,52 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 15 juin 2011 16:02:57 by Hibernate Tools 3.4.0.CR1 -->
-<hibernate-mapping package="corepharma.domain">
-    <class name="Clients" table="clients" catalog="corepharma">
-        <id name="idClient" type="java.lang.Integer">
-            <column name="idClient" />
-            <generator class="identity" />
-        </id>
-        <property name="nom" type="string">
-            <column name="nom" length="254" />
-        </property>
-        <property name="prenom" type="string">
-            <column name="prenom" length="254" />
-        </property>
-        <property name="etatClient" type="java.lang.Boolean">
-            <column name="etatClient" />
-        </property>
-        <property name="tel" type="string">
-            <column name="tel" length="254" />
-        </property>
-        <property name="email" type="string">
-            <column name="email" length="254" />
-        </property>
-        <property name="idNumeroCompte" type="java.lang.Integer">
-            <column name="idNumeroCompte" />
-        </property>
-        <property name="numeroIdentification" type="string">
-            <column name="numeroIdentification" length="254" />
-        </property>
-        <property name="typeClient" type="string">
-            <column name="typeClient" length="254" />
-        </property>
-        <property name="dateCreation" type="string">
-            <column name="dateCreation" length="254" />
-        </property>
-        <property name="dateModification" type="string">
-            <column name="dateModification" length="254" />
-        </property>
-        <property name="auteurCreation" type="string">
-            <column name="auteurCreation" length="254" />
-        </property>
-        <property name="auteurModification" type="string">
-            <column name="auteurModification" length="254" />
-        </property>
-    </class>
+	<!-- Generated 12 juil. 2011 22:46:19 by Hibernate Tools 3.3.0.GA -->
+<hibernate-mapping>
+	<class name="Clients" table="clients" catalog="corepharma">
+		<id name="idClient" type="java.lang.Integer">
+			<column name="idClient" />
+			<generator class="identity" />
+		</id>
+		<property name="idType" type="java.lang.Integer">
+			<column name="idType" />
+		</property>
+		<property name="idEtatClient" type="java.lang.Integer">
+			<column name="idEtatClient" />
+		</property>
+		<property name="nom" type="string">
+			<column name="nom" length="254" />
+		</property>
+		<property name="prenom" type="string">
+			<column name="prenom" length="254" />
+		</property>
+		<property name="tel" type="string">
+			<column name="tel" length="254" />
+		</property>
+		<property name="email" type="string">
+			<column name="email" length="254" />
+		</property>
+		<property name="numeroIdentification" type="string">
+			<column name="numeroIdentification" length="254" />
+		</property>
+		<property name="dateCreation" type="string">
+			<column name="dateCreation" length="254" />
+		</property>
+		<property name="dateModification" type="string">
+			<column name="dateModification" length="254" />
+		</property>
+		<property name="idAuteurCreation" type="java.lang.Integer">
+			<column name="idAuteurCreation" />
+		</property>
+		<property name="idAuteurModification" type="java.lang.Integer">
+			<column name="idAuteurModification" />
+		</property>
+		<set name="commandesProduits" inverse="true" lazy="true" cascade="all">
+			<key>
+				<column name="idClient" not-null="true" />
+			</key>
+			<one-to-many class="Commandes" />
+		</set>
+
+	</class>
 </hibernate-mapping>

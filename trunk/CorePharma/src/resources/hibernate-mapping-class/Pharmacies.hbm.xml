@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 15 juin 2011 16:02:57 by Hibernate Tools 3.4.0.CR1 -->
-<hibernate-mapping package="corepharma.domain">
+<!-- Generated 12 juil. 2011 22:46:19 by Hibernate Tools 3.3.0.GA -->
+<hibernate-mapping>
     <class name="Pharmacies" table="pharmacies" catalog="corepharma">
         <id name="idPharmacie" type="java.lang.Integer">
             <column name="idPharmacie" />
@@ -17,11 +17,8 @@
         <property name="numeroLicence" type="string">
             <column name="numeroLicence" length="254" />
         </property>
-        <property name="nomProprietaire" type="java.lang.Integer">
-            <column name="nomProprietaire" />
-        </property>
-        <property name="etatPharmacie" type="java.lang.Integer">
-            <column name="etatPharmacie" />
+        <property name="nomProprietaire" type="string">
+            <column name="nomProprietaire" length="254" />
         </property>
     </class>
 </hibernate-mapping>

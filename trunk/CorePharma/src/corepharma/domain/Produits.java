@@ -1,6 +1,7 @@
-// default package
-// Generated 27 avr. 2011 12:11:52 by Hibernate Tools 3.4.0.CR1
 package corepharma.domain;
+
+// default package
+// Generated 12 juil. 2011 22:37:21 by Hibernate Tools 3.3.0.GA
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -26,8 +27,8 @@ public class Produits implements java.io.Serializable {
 	private String datePeremption;
 	private String dateCreation;
 	private String dateModification;
-	private String auteurCreation;
-	private String auteurModification;
+	private Integer idAuteurCreation;
+	private Integer idAuteurModification;
 	private String produitPanier;
 
 	public Produits() {
@@ -36,8 +37,8 @@ public class Produits implements java.io.Serializable {
 	public Produits(Integer idAlarme, String nomProduit, String codeProduit,
 			Integer prixProduit, Integer quantiteActuel,
 			Integer quantiteAlarme, String datePeremption, String dateCreation,
-			String dateModification, String auteurCreation,
-			String auteurModification) {
+			String dateModification, Integer idAuteurCreation,
+			Integer idAuteurModification) {
 		this.idAlarme = idAlarme;
 		this.nomProduit = nomProduit;
 		this.codeProduit = codeProduit;
@@ -47,8 +48,8 @@ public class Produits implements java.io.Serializable {
 		this.datePeremption = datePeremption;
 		this.dateCreation = dateCreation;
 		this.dateModification = dateModification;
-		this.auteurCreation = auteurCreation;
-		this.auteurModification = auteurModification;
+		this.idAuteurCreation = idAuteurCreation;
+		this.idAuteurModification = idAuteurModification;
 	}
 
 	@Id
@@ -143,22 +144,22 @@ public class Produits implements java.io.Serializable {
 		this.dateModification = dateModification;
 	}
 
-	@Column(name = "auteurCreation", length = 254)
-	public String getAuteurCreation() {
-		return this.auteurCreation;
+	@Column(name = "idAuteurCreation")
+	public Integer getIdAuteurCreation() {
+		return this.idAuteurCreation;
 	}
 
-	public void setAuteurCreation(String auteurCreation) {
-		this.auteurCreation = auteurCreation;
+	public void setIdAuteurCreation(Integer idAuteurCreation) {
+		this.idAuteurCreation = idAuteurCreation;
 	}
 
-	@Column(name = "auteurModification", length = 254)
-	public String getAuteurModification() {
-		return this.auteurModification;
+	@Column(name = "idAuteurModification")
+	public Integer getIdAuteurModification() {
+		return this.idAuteurModification;
 	}
 
-	public void setAuteurModification(String auteurModification) {
-		this.auteurModification = auteurModification;
+	public void setIdAuteurModification(Integer idAuteurModification) {
+		this.idAuteurModification = idAuteurModification;
 	}
 
 	/**

@@ -1,6 +1,7 @@
-// default package
-// Generated 27 avr. 2011 12:11:52 by Hibernate Tools 3.4.0.CR1
 package corepharma.domain;
+
+// default package
+// Generated 12 juil. 2011 22:37:21 by Hibernate Tools 3.3.0.GA
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -20,7 +21,7 @@ public class Comptesbancaires implements java.io.Serializable {
 	private String codeBanque;
 	private String codeGuichet;
 	private String numeroCompte;
-	private String rib;
+	private String cleRib;
 	private String iban;
 	private String bicAdresseSwift;
 
@@ -28,11 +29,12 @@ public class Comptesbancaires implements java.io.Serializable {
 	}
 
 	public Comptesbancaires(String codeBanque, String codeGuichet,
-			String numeroCompte, String rib, String iban, String bicAdresseSwift) {
+			String numeroCompte, String cleRib, String iban,
+			String bicAdresseSwift) {
 		this.codeBanque = codeBanque;
 		this.codeGuichet = codeGuichet;
 		this.numeroCompte = numeroCompte;
-		this.rib = rib;
+		this.cleRib = cleRib;
 		this.iban = iban;
 		this.bicAdresseSwift = bicAdresseSwift;
 	}
@@ -75,13 +77,13 @@ public class Comptesbancaires implements java.io.Serializable {
 		this.numeroCompte = numeroCompte;
 	}
 
-	@Column(name = "rib", length = 254)
-	public String getRib() {
-		return this.rib;
+	@Column(name = "cleRib", length = 254)
+	public String getCleRib() {
+		return this.cleRib;
 	}
 
-	public void setRib(String rib) {
-		this.rib = rib;
+	public void setCleRib(String cleRib) {
+		this.cleRib = cleRib;
 	}
 
 	@Column(name = "iban", length = 254)
