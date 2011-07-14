@@ -7,8 +7,8 @@ import java.util.List;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
-import corepharma.dao.ClientsDAO;
-import corepharma.dao.ClientsDAOImpl;
+import corepharma.dao.impl.ClientsDAOImpl;
+import corepharma.dao.interfaces.ClientsDAO;
 import corepharma.domain.Clients;
 
 public class ClientsAction extends ActionSupport implements ModelDriven<Clients> {

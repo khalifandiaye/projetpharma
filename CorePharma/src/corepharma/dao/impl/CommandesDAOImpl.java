@@ -5,13 +5,13 @@ import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
-import corepharma.dao.CommandesDAO;
 import corepharma.dao.HibernateUtil;
+import corepharma.dao.interfaces.CommandesDAO;
 import corepharma.domain.Commandes;
 
 public class CommandesDAOImpl implements CommandesDAO {
 
-	@Override
+	//@Override
 	public Commandes addCommande(Commandes commande) {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
@@ -21,7 +21,7 @@ public class CommandesDAOImpl implements CommandesDAO {
 	}
 
 	@SuppressWarnings("unchecked")
-	@Override
+	//@Override
 	public List<Commandes> listCommande() {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();

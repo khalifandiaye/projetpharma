@@ -1,4 +1,4 @@
-package corepharma.dao;
+package corepharma.dao.impl;
 
 import java.util.List;
 
@@ -7,28 +7,30 @@ import org.hibernate.Session;
 
 import com.googlecode.s2hibernate.struts2.plugin.annotations.SessionTarget;
 
-import corepharma.domain.Clients;
+import corepharma.dao.HibernateUtil;
+import corepharma.dao.interfaces.FournisseursDAO;
+import corepharma.domain.Fournisseurs;
 
-public class ClientsDAOImpl implements ClientsDAO {
+public class FournisseursDAOImpl implements FournisseursDAO {
 
 	@SessionTarget
     Session session;
 	
 	@SuppressWarnings("unchecked")
-	public List<Clients> getClientsList() {
+	public List<Fournisseurs> getFournisseursList() {
 		
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
-        List<Clients> clientsList = null;
+        List<Fournisseurs> fournisseurList = null;
         try {
  
-        	clientsList = (List<Clients>)session.createQuery("from Clients").list();
+        	fournisseurList = (List<Fournisseurs>)session.createQuery("from Fournisseurs").list();
         } catch (HibernateException e) {
             e.printStackTrace();
             session.getTransaction().rollback();
         }
         session.getTransaction().commit();
-        return clientsList;
+        return fournisseurList;
     }
 	
 }

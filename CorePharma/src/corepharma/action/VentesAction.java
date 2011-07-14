@@ -1,9 +1,14 @@
 package corepharma.action;
 
+import java.util.Map;
+
 import org.apache.log4j.Logger;
+
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 import corepharma.domain.Produits;
+import corepharma.tools.UserSessionInfos;
 
 public class VentesAction extends ActionSupport {
 
@@ -48,7 +53,9 @@ public class VentesAction extends ActionSupport {
         if(logger.isDebugEnabled())
         {
             logger.debug("Produis Récupérés : " + produits.getProduitPanier());
+            logger.debug("Id de l'utilisateur : " + UserSessionInfos.getUserIdSession());
         }
+        System.out.println("Produis Récupérés : " + produits.getProduitPanier());
         
         //Sortie de l'action
         if(logger.isDebugEnabled())
@@ -67,7 +74,7 @@ public class VentesAction extends ActionSupport {
 	     */
 		return "success";
 	}
-
+	
 	/**
 	 * @return the produits
 	 */

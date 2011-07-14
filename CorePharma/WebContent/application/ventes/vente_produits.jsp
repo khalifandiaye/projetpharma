@@ -124,7 +124,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 	</head>
   
-	<body><div id="body-wrapper">
+	<body><jsp:include page="/application/checkLogin.jsp" />
+	<div id="body-wrapper">
 		
 		<div id="sidebar"><div id="sidebar-wrapper">
 			

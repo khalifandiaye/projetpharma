@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="s" uri="/struts-tags"  %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -27,22 +28,27 @@
 			
 			<div id="login-content">
 				
-				<form action="tableau_de_bord">
+				 <form action="userConnexion" method="post">
 				
 					<div class="notification information png_bg">
 						<div align="center">
-							Message d'erreur.
+							<s:if test="hasActionErrors()" >
+								<s:actionerror/>
+							</s:if>
+							<s:else>
+								<s:property value="getText('login.invitation')" />
+							</s:else>
 						</div>
 					</div>
-					
+
 					<p>
 						<label>Login</label>
-						<input class="text-input" type="text" />
+						<input class="text-input" name="userLogin" id="userLogin" type="text" />
 					</p>
 					<div class="clear"></div>
 					<p>
 						<label>Mot de passe</label>
-						<input class="text-input" type="password" />
+						<input class="text-input" name="userPassword" id="userPassword" type="password" />
 					</p>
 					
                     <div class="clear"></div>
@@ -51,6 +57,7 @@
 					</p>
 					
 				</form>
+				
 			</div>
 			
 		</div>

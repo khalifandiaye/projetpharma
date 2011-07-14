@@ -7,8 +7,8 @@ import java.util.List;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
-import corepharma.dao.ProduitsDAO;
-import corepharma.dao.ProduitsDAOImpl;
+import corepharma.dao.impl.ProduitsDAOImpl;
+import corepharma.dao.interfaces.ProduitsDAO;
 import corepharma.domain.Produits;
 
 public class ProduitsAction extends ActionSupport implements ModelDriven<Produits> {

@@ -23,7 +23,10 @@
 		
 	</head>
   
-	<body><div id="body-wrapper">
+	<body>
+	<jsp:include page="/application/checkLogin.jsp" />
+	
+	<div id="body-wrapper">
 		
 		<div id="sidebar"><div id="sidebar-wrapper">
 			
@@ -31,7 +34,7 @@
 		  
 			<a href="#"><img src="resources/images/Logo-CorePharma.png" alt="CorePharma" width="167" height="107" id="logo" /></a>
 		  
-			<div id="profile-links">Bienvenue, <a href="#" title="Utilisateur">Utilisateur</a>, <br />
+			<div id="profile-links">Bienvenue, <a href="#" title="Utilisateur"><%=session.getAttribute("userLogin") %></a>, <br />
 				 <a href="deconnexion" title="Déconnexion">Déconnexion</a>
 			</div>        
 			
@@ -124,7 +127,7 @@
 		<div id="main-content"> <!-- Main Content Section with everything -->
 			
 			<!-- Page Head -->
-			<h2>Bienvenue, Utilisateur.</h2>
+			<h2>Bienvenue, <%=session.getAttribute("userLogin") %>.</h2>
 			<p id="page-intro">Que voulez vous faire?</p>
 			
 			<ul class="shortcut-buttons-set">

@@ -270,7 +270,7 @@ function ajouterPanier()
 }
 /* ***************************************************
  * Mise à jour de la liste des produits dans un champ
- * cacché afin de le soumettre.
+ * caché afin de le soumettre.
  * ***************************************************/
 function updateListeProduitsPanier()
 {
@@ -344,10 +344,6 @@ function creationFormVenteDyn()
 	                //var quantiteChoisie = row.cells[3].childNodes[0].selectedIndex;//quantité choisie par le client
 					var qte = row.cells[3].childNodes[0];
 					var quantiteChoisie = qte.options[qte.selectedIndex].text;//quantité choisie par le client
-	                
-	                //var texte = "input:\nid : " + idProduit + "\nquantite choisie : " + quantiteChoisie;
-	                
-	                //alert(texte);
 	                
 		            var inputForm = document.createElement("input");
 		            inputForm.type = "text";

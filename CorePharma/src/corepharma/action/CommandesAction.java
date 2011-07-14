@@ -6,8 +6,8 @@ import java.util.List;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
-import corepharma.dao.CommandesDAO;
 import corepharma.dao.impl.CommandesDAOImpl;
+import corepharma.dao.interfaces.CommandesDAO;
 import corepharma.domain.Commandes;
 
 public class CommandesAction extends ActionSupport implements ModelDriven<Commandes>{
@@ -26,7 +26,7 @@ public class CommandesAction extends ActionSupport implements ModelDriven<Comman
 		return SUCCESS;
 	}
 	
-	@Override
+	//@Override
 	public Commandes getModel() {
 		commandes= new Commandes();
 		return commandes;

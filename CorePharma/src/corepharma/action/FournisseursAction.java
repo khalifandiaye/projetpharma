@@ -7,8 +7,8 @@ import java.util.List;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
-import corepharma.dao.FournisseursDAO;
-import corepharma.dao.FournisseursDAOImpl;
+import corepharma.dao.impl.FournisseursDAOImpl;
+import corepharma.dao.interfaces.FournisseursDAO;
 import corepharma.domain.Fournisseurs;
 
 public class FournisseursAction extends ActionSupport implements ModelDriven<Fournisseurs> {
