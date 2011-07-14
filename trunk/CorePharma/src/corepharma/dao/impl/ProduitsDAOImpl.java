@@ -1,4 +1,4 @@
-package corepharma.dao;
+package corepharma.dao.impl;
 
 import java.util.List;
 
@@ -7,6 +7,8 @@ import org.hibernate.Session;
 
 import com.googlecode.s2hibernate.struts2.plugin.annotations.SessionTarget;
 
+import corepharma.dao.HibernateUtil;
+import corepharma.dao.interfaces.ProduitsDAO;
 import corepharma.domain.Produits;
 
 public class ProduitsDAOImpl implements ProduitsDAO {

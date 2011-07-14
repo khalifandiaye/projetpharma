@@ -4,10 +4,12 @@
     "http://struts.apache.org/dtds/struts-2.0.dtd">
  
 <struts>
-    <!-- Exemple fichier struts.xml -->
+
     <constant name="struts.enable.DynamicMethodInvocation" value="false" />
     
-    <constant name="struts.devMode" value="true" />  
+    <constant name="struts.custom.i18n.resources" value="app_res" />
+    
+    <constant name="struts.devMode" value="true" />
     
     <!--<package name="default" namespace="/" extends="hibernate-default">-->
     <package name="default" namespace="/" extends="struts-default">
@@ -18,16 +20,22 @@
         </action>
 	
         <!--Action pour la page d'acceuil (Page d'identification)-->
-	<action name="index">
+		<action name="index">
             <result>index.jsp</result>
         </action>
         
-        <!--Action pour la déconnexion-->
-        <action name="deconnexion">
-            <result type="redirectAction">
-                    <param name="actionName">index</param>
-                    <param name="namespace">/</param>
+        <!--Action pour la connexion d'un utilisateur-->
+		<action name="userConnexion" method="connexion" class="corepharma.action.LoginLogoutAction">
+            <result name="success" type="redirectAction">
+            	<param name="actionName">tableau_de_bord</param>
+                <param name="namespace">/</param>
             </result>
+            <result name="error">index.jsp</result>
+        </action>
+        
+        <!--Action pour la déconnexion-->
+        <action name="deconnexion" method="deconnexion" class="corepharma.action.LoginLogoutAction">
+        	<result name="success">/application/checkLogin.jsp</result>
         </action>
           
     </package>

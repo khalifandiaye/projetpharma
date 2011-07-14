@@ -1,4 +1,4 @@
-package corepharma.dao;
+package corepharma.dao.interfaces;
 
 import java.util.List;
 
