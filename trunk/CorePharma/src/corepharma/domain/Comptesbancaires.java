@@ -1,7 +1,7 @@
 package corepharma.domain;
 
 // default package
-// Generated 12 juil. 2011 22:37:21 by Hibernate Tools 3.3.0.GA
+// Generated 16 juil. 2011 14:29:33 by Hibernate Tools 3.3.0.GA
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,7 +17,13 @@ import javax.persistence.Table;
 @Table(name = "comptesbancaires", catalog = "corepharma")
 public class Comptesbancaires implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6329061363480174378L;
 	private Integer idCompte;
+	private Integer idClient;
+	private Integer idFournisseur;
 	private String codeBanque;
 	private String codeGuichet;
 	private String numeroCompte;
@@ -28,9 +34,11 @@ public class Comptesbancaires implements java.io.Serializable {
 	public Comptesbancaires() {
 	}
 
-	public Comptesbancaires(String codeBanque, String codeGuichet,
-			String numeroCompte, String cleRib, String iban,
-			String bicAdresseSwift) {
+	public Comptesbancaires(Integer idClient, Integer idFournisseur,
+			String codeBanque, String codeGuichet, String numeroCompte,
+			String cleRib, String iban, String bicAdresseSwift) {
+		this.idClient = idClient;
+		this.idFournisseur = idFournisseur;
 		this.codeBanque = codeBanque;
 		this.codeGuichet = codeGuichet;
 		this.numeroCompte = numeroCompte;
@@ -48,6 +56,24 @@ public class Comptesbancaires implements java.io.Serializable {
 
 	public void setIdCompte(Integer idCompte) {
 		this.idCompte = idCompte;
+	}
+
+	@Column(name = "idClient")
+	public Integer getIdClient() {
+		return this.idClient;
+	}
+
+	public void setIdClient(Integer idClient) {
+		this.idClient = idClient;
+	}
+
+	@Column(name = "idFournisseur")
+	public Integer getIdFournisseur() {
+		return this.idFournisseur;
+	}
+
+	public void setIdFournisseur(Integer idFournisseur) {
+		this.idFournisseur = idFournisseur;
 	}
 
 	@Column(name = "codeBanque", length = 254)

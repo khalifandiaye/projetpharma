@@ -1,7 +1,9 @@
 package corepharma.domain;
 
 // default package
-// Generated 12 juil. 2011 22:37:21 by Hibernate Tools 3.3.0.GA
+// Generated 16 juil. 2011 14:29:33 by Hibernate Tools 3.3.0.GA
+
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,7 +19,12 @@ import javax.persistence.Table;
 @Table(name = "produits", catalog = "corepharma")
 public class Produits implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 537332219318499949L;
 	private Integer idProduit;
+	private Integer idGestion;
 	private Integer idAlarme;
 	private String nomProduit;
 	private String codeProduit;
@@ -30,15 +37,18 @@ public class Produits implements java.io.Serializable {
 	private Integer idAuteurCreation;
 	private Integer idAuteurModification;
 	private String produitPanier;
+	private Set<Produits> venteProduits;
+	private Set<Commandes> commandesProduits;
 
 	public Produits() {
 	}
 
-	public Produits(Integer idAlarme, String nomProduit, String codeProduit,
-			Integer prixProduit, Integer quantiteActuel,
+	public Produits(Integer idGestion, Integer idAlarme, String nomProduit,
+			String codeProduit, Integer prixProduit, Integer quantiteActuel,
 			Integer quantiteAlarme, String datePeremption, String dateCreation,
 			String dateModification, Integer idAuteurCreation,
 			Integer idAuteurModification) {
+		this.idGestion = idGestion;
 		this.idAlarme = idAlarme;
 		this.nomProduit = nomProduit;
 		this.codeProduit = codeProduit;
@@ -61,6 +71,15 @@ public class Produits implements java.io.Serializable {
 
 	public void setIdProduit(Integer idProduit) {
 		this.idProduit = idProduit;
+	}
+
+	@Column(name = "idGestion")
+	public Integer getIdGestion() {
+		return this.idGestion;
+	}
+
+	public void setIdGestion(Integer idGestion) {
+		this.idGestion = idGestion;
 	}
 
 	@Column(name = "idAlarme")
@@ -162,18 +181,29 @@ public class Produits implements java.io.Serializable {
 		this.idAuteurModification = idAuteurModification;
 	}
 
-	/**
-	 * @return the produitPanier
-	 */
 	public String getProduitPanier() {
 		return produitPanier;
 	}
 
-	/**
-	 * @param produitPanier the produitPanier to set
-	 */
 	public void setProduitPanier(String produitPanier) {
 		this.produitPanier = produitPanier;
 	}
 
+	public Set<Produits> getVenteProduits() {
+		return venteProduits;
+	}
+
+	public void setVenteProduits(Set<Produits> venteProduits) {
+		this.venteProduits = venteProduits;
+	}
+
+	public Set<Commandes> getCommandesProduits() {
+		return commandesProduits;
+	}
+
+	public void setCommandesProduits(Set<Commandes> commandesProduits) {
+		this.commandesProduits = commandesProduits;
+	}
+
+	
 }

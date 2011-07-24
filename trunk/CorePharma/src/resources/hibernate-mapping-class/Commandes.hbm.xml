@@ -1,30 +1,36 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-	<!-- Generated 12 juil. 2011 22:46:19 by Hibernate Tools 3.3.0.GA -->
+	<!-- Generated 17 juil. 2011 15:22:45 by Hibernate Tools 3.3.0.GA -->
 <hibernate-mapping>
 	<class name="Commandes" table="commandes" catalog="corepharma">
 		<id name="idCommande" type="java.lang.Integer">
 			<column name="idCommande" />
 			<generator class="identity" />
 		</id>
-		<property name="idFournisseur" type="java.lang.Integer">
-			<column name="idFournisseur" />
-		</property>
 		<property name="idMode" type="java.lang.Integer">
 			<column name="idMode" />
 		</property>
 		<property name="idClient" type="java.lang.Integer">
 			<column name="idClient" />
 		</property>
-		<property name="idAlarme" type="java.lang.Integer">
-			<column name="idAlarme" />
+		<property name="idGestion" type="java.lang.Integer">
+			<column name="idGestion" />
 		</property>
 		<property name="idEtat" type="java.lang.Integer">
 			<column name="idEtat" />
 		</property>
+		<property name="idFournisseur" type="java.lang.Integer">
+			<column name="idFournisseur" />
+		</property>
+		<property name="idAlarme" type="java.lang.Integer">
+			<column name="idAlarme" />
+		</property>
 		<property name="numeroCommande" type="string">
 			<column name="numeroCommande" length="254" />
+		</property>
+		<property name="idFournisseurCommande" type="string">
+			<column name="idFournisseurCommande" length="254" />
 		</property>
 		<property name="etatCommande" type="string">
 			<column name="etatCommande" length="254" />
@@ -41,15 +47,37 @@
 		<property name="dateModification" type="string">
 			<column name="dateModification" length="254" />
 		</property>
-		<property name="idAuteurCreation" type="java.lang.Integer">
-			<column name="idAuteurCreation" />
+		<property name="idAuteurCreation" type="string">
+			<column name="idAuteurCreation" length="254" />
 		</property>
-		<property name="idAuteurModification" type="java.lang.Integer">
-			<column name="idAuteurModification" />
+		<property name="idAuteurModification" type="string">
+			<column name="idAuteurModification" length="254" />
 		</property>
+
+		<set name="commandesProduits" table="acommandesproduits">
+			<key column="idCommande" />
+			<many-to-many column="idProduit" class="Produits" />
+		</set>
+
 		<many-to-one name="client" outer-join="false" cascade="none"
 			class="Clients">
-			<column name="idClient" not-null="true" />
+			<column name="idClient" not-null="false" />
 		</many-to-one>
+
+		<many-to-one name="fournisseur" outer-join="false"
+			cascade="none" class="Fournisseurs">
+			<column name="idFournisseur" not-null="false" />
+		</many-to-one>
+
+		<many-to-one name="typeEtatCommande" outer-join="false"
+			cascade="none" class="Typeetatcommande">
+			<column name="idEtat" not-null="false" />
+		</many-to-one>
+
+		<many-to-one name="modeReglement" outer-join="false"
+			cascade="none" class="Modedereglement">
+			<column name="idMode" not-null="false" />
+		</many-to-one>
+		
 	</class>
 </hibernate-mapping>

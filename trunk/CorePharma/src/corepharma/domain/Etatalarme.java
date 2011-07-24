@@ -1,7 +1,9 @@
 package corepharma.domain;
 
 // default package
-// Generated 12 juil. 2011 22:37:21 by Hibernate Tools 3.3.0.GA
+// Generated 16 juil. 2011 14:29:33 by Hibernate Tools 3.3.0.GA
+
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,8 +19,13 @@ import javax.persistence.Table;
 @Table(name = "etatalarme", catalog = "corepharma")
 public class Etatalarme implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1122476264544248653L;
 	private Integer idEtatAlarme;
 	private Integer nomEtatAlarme;
+	private Set<Alarmes> alarmes;
 
 	public Etatalarme() {
 	}
@@ -47,4 +54,13 @@ public class Etatalarme implements java.io.Serializable {
 		this.nomEtatAlarme = nomEtatAlarme;
 	}
 
+	public Set<Alarmes> getAlarmes() {
+		return alarmes;
+	}
+
+	public void setAlarmes(Set<Alarmes> alarmes) {
+		this.alarmes = alarmes;
+	}
+
+	
 }

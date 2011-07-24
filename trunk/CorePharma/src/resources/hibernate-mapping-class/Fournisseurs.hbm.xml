@@ -1,42 +1,67 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 12 juil. 2011 22:46:19 by Hibernate Tools 3.3.0.GA -->
+	<!-- Generated 17 juil. 2011 15:22:45 by Hibernate Tools 3.3.0.GA -->
 <hibernate-mapping>
-    <class name="Fournisseurs" table="fournisseurs" catalog="corepharma">
-        <id name="idFournisseur" type="java.lang.Integer">
-            <column name="idFournisseur" />
-            <generator class="identity" />
-        </id>
-        <property name="idEtatFournisseur" type="java.lang.Integer">
-            <column name="idEtatFournisseur" />
-        </property>
-        <property name="idAlarme" type="java.lang.Integer">
-            <column name="idAlarme" />
-        </property>
-        <property name="nomFournisseur" type="string">
-            <column name="nomFournisseur" length="254" />
-        </property>
-        <property name="codeFournisseur" type="string">
-            <column name="codeFournisseur" length="254" />
-        </property>
-        <property name="tel" type="string">
-            <column name="tel" length="254" />
-        </property>
-        <property name="adresse" type="string">
-            <column name="adresse" length="254" />
-        </property>
-        <property name="dateCreation" type="string">
-            <column name="dateCreation" length="254" />
-        </property>
-        <property name="dateModification" type="string">
-            <column name="dateModification" length="254" />
-        </property>
-        <property name="idAuteurCreation" type="java.lang.Integer">
-            <column name="idAuteurCreation" />
-        </property>
-        <property name="idAuteurModification" type="java.lang.Integer">
-            <column name="idAuteurModification" />
-        </property>
-    </class>
+	<class name="Fournisseurs" table="fournisseurs" catalog="corepharma">
+		<id name="idFournisseur" type="java.lang.Integer">
+			<column name="idFournisseur" />
+			<generator class="identity" />
+		</id>
+		<property name="idGestion" type="java.lang.Integer">
+			<column name="idGestion" />
+		</property>
+		<property name="idEtatClient" type="java.lang.Integer">
+			<column name="idEtatClient" />
+		</property>
+		<property name="idAlarme" type="java.lang.Integer">
+			<column name="idAlarme" />
+		</property>
+		<property name="nomFournisseur" type="string">
+			<column name="nomFournisseur" length="254" />
+		</property>
+		<property name="codeFournisseur" type="string">
+			<column name="codeFournisseur" length="254" />
+		</property>
+		<property name="tel" type="string">
+			<column name="tel" length="254" />
+		</property>
+		<property name="dateCreation" type="string">
+			<column name="dateCreation" length="254" />
+		</property>
+		<property name="dateModification" type="string">
+			<column name="dateModification" length="254" />
+		</property>
+		<property name="idAuteurCreation" type="string">
+			<column name="idAuteurCreation" length="254" />
+		</property>
+		<property name="idAuteurModification" type="string">
+			<column name="idAuteurModification" length="254" />
+		</property>
+
+		<many-to-one name="typeEtatFournisseur" outer-join="false"
+			cascade="none" class="Typeetatclient">
+			<column name="idEtatClient" not-null="false" />
+		</many-to-one>
+
+		<set name="addresses" table="aforunisseursadresses">
+			<key column="idFournisseur" />
+			<many-to-many column="idAdresse" class="Adresses" />
+		</set>
+
+		<set name="commandesProduits" inverse="true" lazy="true" cascade="all">
+			<key>
+				<column name="idFournisseur" not-null="false" />
+			</key>
+			<one-to-many class="Commandes" />
+		</set>
+
+		<set name="comptesbancaires" inverse="true" lazy="true" cascade="all">
+			<key>
+				<column name="idFournisseur" not-null="false" />
+			</key>
+			<one-to-many class="Commandesproduits" />
+		</set>
+
+	</class>
 </hibernate-mapping>

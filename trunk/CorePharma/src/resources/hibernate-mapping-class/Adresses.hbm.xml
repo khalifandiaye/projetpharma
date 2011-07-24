@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	<!-- Generated 17 juil. 2011 15:22:45 by Hibernate Tools 3.3.0.GA -->
+<hibernate-mapping>
+	<class name="Adresses" table="adresses" catalog="corepharma">
+		<id name="idAdresse" type="java.lang.Integer">
+			<column name="idAdresse" />
+			<generator class="identity" />
+		</id>
+		<property name="adresse" type="string">
+			<column name="adresse" length="254" />
+		</property>
+		<property name="ville" type="string">
+			<column name="ville" length="254" />
+		</property>
+		<property name="codepostal" type="string">
+			<column name="codepostal" length="254" />
+		</property>
+		<property name="pays" type="string">
+			<column name="pays" length="254" />
+		</property>
+		<set name="adresseClient" inverse="true" table="aclientsadresses">
+			<key column="idAdresse" />
+			<many-to-many column="idClient" class="Clients" />
+		</set>
+		<set name="adresseFournisseur" inverse="true" table="aforunisseursadresses">
+			<key column="idAdresse" />
+			<many-to-many column="idFournisseur" class="Fournisseurs" />
+		</set>
+		<set name="adresseUser" inverse="true" table="autilisateursadresses">
+			<key column="idAdresse" />
+			<many-to-many column="idUtilisateur" class="Utilisateurs" />
+		</set>
+	</class>
+</hibernate-mapping>

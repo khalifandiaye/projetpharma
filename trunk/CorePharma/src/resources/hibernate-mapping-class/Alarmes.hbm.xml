@@ -1,18 +1,22 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 12 juil. 2011 22:46:19 by Hibernate Tools 3.3.0.GA -->
+	<!-- Generated 17 juil. 2011 15:22:45 by Hibernate Tools 3.3.0.GA -->
 <hibernate-mapping>
-    <class name="Alarmes" table="alarmes" catalog="corepharma">
-        <id name="idAlarme" type="java.lang.Integer">
-            <column name="idAlarme" />
-            <generator class="identity" />
-        </id>
-        <property name="idEtatAlarme" type="java.lang.Integer">
-            <column name="idEtatAlarme" />
-        </property>
-        <property name="dateAlarme" type="string">
-            <column name="dateAlarme" length="254" />
-        </property>
-    </class>
+	<class name="Alarmes" table="alarmes" catalog="corepharma">
+		<id name="idAlarme" type="java.lang.Integer">
+			<column name="idAlarme" />
+			<generator class="identity" />
+		</id>
+		<property name="idEtatAlarme" type="java.lang.Integer">
+			<column name="idEtatAlarme" />
+		</property>
+		<property name="dateAlarme" type="string">
+			<column name="dateAlarme" length="254" />
+		</property>
+		<many-to-one name="client" outer-join="false" cascade="none"
+			class="Etatalarme">
+			<column name="idEtatAlarme" not-null="false" />
+		</many-to-one>
+	</class>
 </hibernate-mapping>

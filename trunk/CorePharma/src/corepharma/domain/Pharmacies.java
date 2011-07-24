@@ -1,7 +1,7 @@
 package corepharma.domain;
 
 // default package
-// Generated 12 juil. 2011 22:37:21 by Hibernate Tools 3.3.0.GA
+// Generated 16 juil. 2011 14:29:33 by Hibernate Tools 3.3.0.GA
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,21 +17,27 @@ import javax.persistence.Table;
 @Table(name = "pharmacies", catalog = "corepharma")
 public class Pharmacies implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8364265608089164680L;
 	private Integer idPharmacie;
 	private String nomPharmacie;
 	private String codePharmacie;
 	private String numeroLicence;
 	private String nomProprietaire;
+	private Integer etatPharmacie;
 
 	public Pharmacies() {
 	}
 
 	public Pharmacies(String nomPharmacie, String codePharmacie,
-			String numeroLicence, String nomProprietaire) {
+			String numeroLicence, String nomProprietaire, Integer etatPharmacie) {
 		this.nomPharmacie = nomPharmacie;
 		this.codePharmacie = codePharmacie;
 		this.numeroLicence = numeroLicence;
 		this.nomProprietaire = nomProprietaire;
+		this.etatPharmacie = etatPharmacie;
 	}
 
 	@Id
@@ -79,6 +85,15 @@ public class Pharmacies implements java.io.Serializable {
 
 	public void setNomProprietaire(String nomProprietaire) {
 		this.nomProprietaire = nomProprietaire;
+	}
+
+	@Column(name = "etatPharmacie")
+	public Integer getEtatPharmacie() {
+		return this.etatPharmacie;
+	}
+
+	public void setEtatPharmacie(Integer etatPharmacie) {
+		this.etatPharmacie = etatPharmacie;
 	}
 
 }

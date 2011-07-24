@@ -1,7 +1,7 @@
 package corepharma.domain;
 
 // default package
-// Generated 12 juil. 2011 22:37:21 by Hibernate Tools 3.3.0.GA
+// Generated 16 juil. 2011 14:29:33 by Hibernate Tools 3.3.0.GA
 
 
 import javax.persistence.Column;
@@ -21,7 +21,11 @@ import javax.persistence.Table;
 public class Alarmes  implements java.io.Serializable {
 
 
-     private Integer idAlarme;
+     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 283284500873649798L;
+	private Integer idAlarme;
      private Integer idEtatAlarme;
      private String dateAlarme;
 

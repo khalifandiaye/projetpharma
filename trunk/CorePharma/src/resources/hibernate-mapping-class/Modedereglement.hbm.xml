@@ -1,15 +1,30 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 12 juil. 2011 22:46:19 by Hibernate Tools 3.3.0.GA -->
+	<!-- Generated 17 juil. 2011 15:22:45 by Hibernate Tools 3.3.0.GA -->
 <hibernate-mapping>
-    <class name="Modedereglement" table="modedereglement" catalog="corepharma">
-        <id name="idMode" type="java.lang.Integer">
-            <column name="idMode" />
-            <generator class="identity" />
-        </id>
-        <property name="nomMode" type="string">
-            <column name="nomMode" length="254" />
-        </property>
-    </class>
+	<class name="Modedereglement" table="modedereglement" catalog="corepharma">
+		<id name="idMode" type="java.lang.Integer">
+			<column name="idMode" />
+			<generator class="identity" />
+		</id>
+		<property name="nomMode" type="string">
+			<column name="nomMode" length="254" />
+		</property>
+		<set name="modeReglementCommandes" inverse="true" lazy="true"
+			cascade="all">
+			<key>
+				<column name="idMode" not-null="false" />
+			</key>
+			<one-to-many class="Commandes" />
+		</set>
+		<set name="modeReglementVentes" inverse="true" lazy="true"
+			cascade="all">
+			<key>
+				<column name="idMode" not-null="false" />
+			</key>
+			<one-to-many class="Ventes" />
+		</set>
+
+	</class>
 </hibernate-mapping>

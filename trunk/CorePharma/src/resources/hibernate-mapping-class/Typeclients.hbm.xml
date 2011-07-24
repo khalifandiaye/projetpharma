@@ -1,15 +1,23 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 12 juil. 2011 22:46:19 by Hibernate Tools 3.3.0.GA -->
+	<!-- Generated 17 juil. 2011 15:22:45 by Hibernate Tools 3.3.0.GA -->
 <hibernate-mapping>
-    <class name="Typeclients" table="typeclients" catalog="corepharma">
-        <id name="idType" type="java.lang.Integer">
-            <column name="idType" />
-            <generator class="identity" />
-        </id>
-        <property name="nomType" type="string">
-            <column name="nomType" length="254" />
-        </property>
-    </class>
+	<class name="Typeclients" table="typeclients" catalog="corepharma">
+		<id name="idType" type="java.lang.Integer">
+			<column name="idType" />
+			<generator class="identity" />
+		</id>
+		<property name="nomType" type="string">
+			<column name="nomType" length="254" />
+		</property>
+
+		<set name="typeClients" inverse="true" lazy="true" cascade="all">
+			<key>
+				<column name="idType" not-null="false" />
+			</key>
+			<one-to-many class="Clients" />
+		</set>
+
+	</class>
 </hibernate-mapping>

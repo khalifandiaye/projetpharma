@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 12 juil. 2011 22:46:19 by Hibernate Tools 3.3.0.GA -->
+<!-- Generated 17 juil. 2011 15:22:45 by Hibernate Tools 3.3.0.GA -->
 <hibernate-mapping>
     <class name="Pharmacies" table="pharmacies" catalog="corepharma">
         <id name="idPharmacie" type="java.lang.Integer">
@@ -19,6 +19,9 @@
         </property>
         <property name="nomProprietaire" type="string">
             <column name="nomProprietaire" length="254" />
+        </property>
+        <property name="etatPharmacie" type="java.lang.Integer">
+            <column name="etatPharmacie" />
         </property>
     </class>
 </hibernate-mapping>

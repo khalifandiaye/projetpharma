@@ -1,7 +1,9 @@
 package corepharma.domain;
 
 // default package
-// Generated 12 juil. 2011 22:37:21 by Hibernate Tools 3.3.0.GA
+// Generated 16 juil. 2011 14:29:33 by Hibernate Tools 3.3.0.GA
+
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,8 +19,14 @@ import javax.persistence.Table;
 @Table(name = "typeetatclient", catalog = "corepharma")
 public class Typeetatclient implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6817861044383084709L;
 	private Integer idEtatClient;
 	private Integer nomEtatClient;
+	private Set<Clients> typeEtatClients;
+	private Set<Fournisseurs> typeEtatFournisseurs;
 
 	public Typeetatclient() {
 	}
@@ -47,4 +55,21 @@ public class Typeetatclient implements java.io.Serializable {
 		this.nomEtatClient = nomEtatClient;
 	}
 
+	public Set<Clients> getTypeEtatClients() {
+		return typeEtatClients;
+	}
+
+	public void setTypeEtatClients(Set<Clients> typeEtatClients) {
+		this.typeEtatClients = typeEtatClients;
+	}
+
+	public Set<Fournisseurs> getTypeEtatFournisseurs() {
+		return typeEtatFournisseurs;
+	}
+
+	public void setTypeEtatFournisseurs(Set<Fournisseurs> typeEtatFournisseurs) {
+		this.typeEtatFournisseurs = typeEtatFournisseurs;
+	}
+	
+	
 }
