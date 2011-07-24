@@ -37,7 +37,7 @@ public class Produits implements java.io.Serializable {
 	private Integer idAuteurCreation;
 	private Integer idAuteurModification;
 	private String produitPanier;
-	private Set<Produits> venteProduits;
+	private Set<Ventes> venteProduits;
 	private Set<Commandes> commandesProduits;
 
 	public Produits() {
@@ -189,11 +189,11 @@ public class Produits implements java.io.Serializable {
 		this.produitPanier = produitPanier;
 	}
 
-	public Set<Produits> getVenteProduits() {
+	public Set<Ventes> getVenteProduits() {
 		return venteProduits;
 	}
 
-	public void setVenteProduits(Set<Produits> venteProduits) {
+	public void setVenteProduits(Set<Ventes> venteProduits) {
 		this.venteProduits = venteProduits;
 	}
 
