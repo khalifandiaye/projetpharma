@@ -1,7 +1,9 @@
 package corepharma.domain;
 
 // default package
-// Generated 12 juil. 2011 22:37:21 by Hibernate Tools 3.3.0.GA
+// Generated 16 juil. 2011 14:29:33 by Hibernate Tools 3.3.0.GA
+
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,23 +19,33 @@ import javax.persistence.Table;
 @Table(name = "ventes", catalog = "corepharma")
 public class Ventes implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7896342381667417920L;
 	private Integer idVente;
 	private Integer idMode;
+	private Integer idGestion;
+	private Integer etatVente;
 	private String dateCreation;
 	private String dateModification;
-	private Integer idAuteurCreation;
-	private Integer idAuteurModification;
+	private String idAuteurCreation;
+	private String idAuteurModification;
 	private String codeVente;
 	private Integer montantRecu;
 	private Integer montantVente;
+	private Set<Produits> produitsVentes;
 
 	public Ventes() {
 	}
 
-	public Ventes(Integer idMode, String dateCreation, String dateModification,
-			Integer idAuteurCreation, Integer idAuteurModification,
+	public Ventes(Integer idMode, Integer idGestion, Integer etatVente,
+			String dateCreation, String dateModification,
+			String idAuteurCreation, String idAuteurModification,
 			String codeVente, Integer montantRecu, Integer montantVente) {
 		this.idMode = idMode;
+		this.idGestion = idGestion;
+		this.etatVente = etatVente;
 		this.dateCreation = dateCreation;
 		this.dateModification = dateModification;
 		this.idAuteurCreation = idAuteurCreation;
@@ -63,6 +75,24 @@ public class Ventes implements java.io.Serializable {
 		this.idMode = idMode;
 	}
 
+	@Column(name = "idGestion")
+	public Integer getIdGestion() {
+		return this.idGestion;
+	}
+
+	public void setIdGestion(Integer idGestion) {
+		this.idGestion = idGestion;
+	}
+
+	@Column(name = "etatVente")
+	public Integer getEtatVente() {
+		return this.etatVente;
+	}
+
+	public void setEtatVente(Integer etatVente) {
+		this.etatVente = etatVente;
+	}
+
 	@Column(name = "dateCreation", length = 254)
 	public String getDateCreation() {
 		return this.dateCreation;
@@ -81,21 +111,21 @@ public class Ventes implements java.io.Serializable {
 		this.dateModification = dateModification;
 	}
 
-	@Column(name = "idAuteurCreation")
-	public Integer getIdAuteurCreation() {
+	@Column(name = "idAuteurCreation", length = 254)
+	public String getIdAuteurCreation() {
 		return this.idAuteurCreation;
 	}
 
-	public void setIdAuteurCreation(Integer idAuteurCreation) {
+	public void setIdAuteurCreation(String idAuteurCreation) {
 		this.idAuteurCreation = idAuteurCreation;
 	}
 
-	@Column(name = "idAuteurModification")
-	public Integer getIdAuteurModification() {
+	@Column(name = "idAuteurModification", length = 254)
+	public String getIdAuteurModification() {
 		return this.idAuteurModification;
 	}
 
-	public void setIdAuteurModification(Integer idAuteurModification) {
+	public void setIdAuteurModification(String idAuteurModification) {
 		this.idAuteurModification = idAuteurModification;
 	}
 
@@ -126,4 +156,13 @@ public class Ventes implements java.io.Serializable {
 		this.montantVente = montantVente;
 	}
 
+	public Set<Produits> getProduitsVentes() {
+		return produitsVentes;
+	}
+
+	public void setProduitsVentes(Set<Produits> produitsVentes) {
+		this.produitsVentes = produitsVentes;
+	}
+
+	
 }

@@ -10,24 +10,26 @@
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="hibernate.search.autoregister_listeners">false</property>
+        <mapping class="Aclientsadresses" />
         <mapping class="Produits" />
-        <mapping class="Etatalarme" />
         <mapping class="Pharmacies" />
+        <mapping class="Etatalarme" />
         <mapping class="Typeclients" />
+        <mapping class="Autilisateursadresses" />
         <mapping class="Utilisateurs" />
-        <mapping class="Assocommandesproduits" />
         <mapping class="Modedereglement" />
-        <mapping class="Assosfournisseurscomptesbancaires" />
+        <mapping class="Aproduitsventes" />
         <mapping class="Typeetatcommande" />
         <mapping class="Typeetatclient" />
         <mapping class="Alarmes" />
+        <mapping class="Acommandesproduits" />
         <mapping class="Fournisseurs" />
         <mapping class="Ventes" />
-        <mapping class="Assoventesproduits" />
         <mapping class="Clients" />
+        <mapping class="Adresses" />
+        <mapping class="Aforunisseursadresses" />
         <mapping class="Commandes" />
         <mapping class="Categorieutilisateurs" />
         <mapping class="Comptesbancaires" />
-        <mapping class="Assoclientscomptesbancaires" />
     </session-factory>
 </hibernate-configuration>

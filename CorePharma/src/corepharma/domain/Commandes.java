@@ -1,7 +1,9 @@
 package corepharma.domain;
 
 // default package
-// Generated 12 juil. 2011 22:37:21 by Hibernate Tools 3.3.0.GA
+// Generated 16 juil. 2011 14:29:33 by Hibernate Tools 3.3.0.GA
+
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,36 +19,46 @@ import javax.persistence.Table;
 @Table(name = "commandes", catalog = "corepharma")
 public class Commandes implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer idCommande;
-	private Integer idFournisseur;
 	private Integer idMode;
 	private Integer idClient;
-	private Integer idAlarme;
+	private Integer idGestion;
 	private Integer idEtat;
+	private Integer idFournisseur;
+	private Integer idAlarme;
 	private String numeroCommande;
+	private String idFournisseurCommande;
 	private String etatCommande;
 	private String dateLivraisonSouhaite;
 	private String dateLivraisonEffective;
 	private String dateCreation;
 	private String dateModification;
-	private Integer idAuteurCreation;
-	private Integer idAuteurModification;
+	private String idAuteurCreation;
+	private String idAuteurModification;
+	private Set<Produits> commandesProduits;
 
 	public Commandes() {
 	}
 
-	public Commandes(Integer idFournisseur, Integer idMode, Integer idClient,
-			Integer idAlarme, Integer idEtat, String numeroCommande,
+	public Commandes(Integer idMode, Integer idClient, Integer idGestion,
+			Integer idEtat, Integer idFournisseur, Integer idAlarme,
+			String numeroCommande, String idFournisseurCommande,
 			String etatCommande, String dateLivraisonSouhaite,
 			String dateLivraisonEffective, String dateCreation,
-			String dateModification, Integer idAuteurCreation,
-			Integer idAuteurModification) {
-		this.idFournisseur = idFournisseur;
+			String dateModification, String idAuteurCreation,
+			String idAuteurModification) {
 		this.idMode = idMode;
 		this.idClient = idClient;
-		this.idAlarme = idAlarme;
+		this.idGestion = idGestion;
 		this.idEtat = idEtat;
+		this.idFournisseur = idFournisseur;
+		this.idAlarme = idAlarme;
 		this.numeroCommande = numeroCommande;
+		this.idFournisseurCommande = idFournisseurCommande;
 		this.etatCommande = etatCommande;
 		this.dateLivraisonSouhaite = dateLivraisonSouhaite;
 		this.dateLivraisonEffective = dateLivraisonEffective;
@@ -67,15 +79,6 @@ public class Commandes implements java.io.Serializable {
 		this.idCommande = idCommande;
 	}
 
-	@Column(name = "idFournisseur")
-	public Integer getIdFournisseur() {
-		return this.idFournisseur;
-	}
-
-	public void setIdFournisseur(Integer idFournisseur) {
-		this.idFournisseur = idFournisseur;
-	}
-
 	@Column(name = "idMode")
 	public Integer getIdMode() {
 		return this.idMode;
@@ -94,13 +97,13 @@ public class Commandes implements java.io.Serializable {
 		this.idClient = idClient;
 	}
 
-	@Column(name = "idAlarme")
-	public Integer getIdAlarme() {
-		return this.idAlarme;
+	@Column(name = "idGestion")
+	public Integer getIdGestion() {
+		return this.idGestion;
 	}
 
-	public void setIdAlarme(Integer idAlarme) {
-		this.idAlarme = idAlarme;
+	public void setIdGestion(Integer idGestion) {
+		this.idGestion = idGestion;
 	}
 
 	@Column(name = "idEtat")
@@ -112,6 +115,24 @@ public class Commandes implements java.io.Serializable {
 		this.idEtat = idEtat;
 	}
 
+	@Column(name = "idFournisseur")
+	public Integer getIdFournisseur() {
+		return this.idFournisseur;
+	}
+
+	public void setIdFournisseur(Integer idFournisseur) {
+		this.idFournisseur = idFournisseur;
+	}
+
+	@Column(name = "idAlarme")
+	public Integer getIdAlarme() {
+		return this.idAlarme;
+	}
+
+	public void setIdAlarme(Integer idAlarme) {
+		this.idAlarme = idAlarme;
+	}
+
 	@Column(name = "numeroCommande", length = 254)
 	public String getNumeroCommande() {
 		return this.numeroCommande;
@@ -119,6 +140,15 @@ public class Commandes implements java.io.Serializable {
 
 	public void setNumeroCommande(String numeroCommande) {
 		this.numeroCommande = numeroCommande;
+	}
+
+	@Column(name = "idFournisseurCommande", length = 254)
+	public String getIdFournisseurCommande() {
+		return this.idFournisseurCommande;
+	}
+
+	public void setIdFournisseurCommande(String idFournisseurCommande) {
+		this.idFournisseurCommande = idFournisseurCommande;
 	}
 
 	@Column(name = "etatCommande", length = 254)
@@ -166,22 +196,32 @@ public class Commandes implements java.io.Serializable {
 		this.dateModification = dateModification;
 	}
 
-	@Column(name = "idAuteurCreation")
-	public Integer getIdAuteurCreation() {
+	@Column(name = "idAuteurCreation", length = 254)
+	public String getIdAuteurCreation() {
 		return this.idAuteurCreation;
 	}
 
-	public void setIdAuteurCreation(Integer idAuteurCreation) {
+	public void setIdAuteurCreation(String idAuteurCreation) {
 		this.idAuteurCreation = idAuteurCreation;
 	}
 
-	@Column(name = "idAuteurModification")
-	public Integer getIdAuteurModification() {
+	@Column(name = "idAuteurModification", length = 254)
+	public String getIdAuteurModification() {
 		return this.idAuteurModification;
 	}
 
-	public void setIdAuteurModification(Integer idAuteurModification) {
+	public void setIdAuteurModification(String idAuteurModification) {
 		this.idAuteurModification = idAuteurModification;
 	}
+
+	public Set<Produits> getCommandesProduits() {
+		return commandesProduits;
+	}
+
+	public void setCommandesProduits(Set<Produits> commandesProduits) {
+		this.commandesProduits = commandesProduits;
+	}
+	
+	
 
 }

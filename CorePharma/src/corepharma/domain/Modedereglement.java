@@ -1,12 +1,15 @@
 package corepharma.domain;
 
 // default package
-// Generated 12 juil. 2011 22:37:21 by Hibernate Tools 3.3.0.GA
+// Generated 16 juil. 2011 14:29:33 by Hibernate Tools 3.3.0.GA
+
+import static javax.persistence.GenerationType.IDENTITY;
+
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -17,9 +20,15 @@ import javax.persistence.Table;
 @Table(name = "modedereglement", catalog = "corepharma")
 public class Modedereglement implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5289587956314161677L;
 	private Integer idMode;
 	private String nomMode;
-
+	private Set<Commandes> modeReglementCommandes;
+	private Set<Ventes> modeReglementVentes;
+	
 	public Modedereglement() {
 	}
 
@@ -47,4 +56,21 @@ public class Modedereglement implements java.io.Serializable {
 		this.nomMode = nomMode;
 	}
 
+	public Set<Commandes> getModeReglementCommandes() {
+		return modeReglementCommandes;
+	}
+
+	public void setModeReglementCommandes(Set<Commandes> modeReglementCommandes) {
+		this.modeReglementCommandes = modeReglementCommandes;
+	}
+
+	public Set<Ventes> getModeReglementVentes() {
+		return modeReglementVentes;
+	}
+
+	public void setModeReglementVentes(Set<Ventes> modeReglementVentes) {
+		this.modeReglementVentes = modeReglementVentes;
+	}
+
+	
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-	<!-- Generated 12 juil. 2011 22:46:19 by Hibernate Tools 3.3.0.GA -->
+	<!-- Generated 17 juil. 2011 15:22:45 by Hibernate Tools 3.3.0.GA -->
 <hibernate-mapping>
 	<class name="Clients" table="clients" catalog="corepharma">
 		<id name="idClient" type="java.lang.Integer">
@@ -10,6 +10,9 @@
 		</id>
 		<property name="idType" type="java.lang.Integer">
 			<column name="idType" />
+		</property>
+		<property name="idGestion" type="java.lang.Integer">
+			<column name="idGestion" />
 		</property>
 		<property name="idEtatClient" type="java.lang.Integer">
 			<column name="idEtatClient" />
@@ -35,18 +38,39 @@
 		<property name="dateModification" type="string">
 			<column name="dateModification" length="254" />
 		</property>
-		<property name="idAuteurCreation" type="java.lang.Integer">
-			<column name="idAuteurCreation" />
+		<property name="idAuteurCreation" type="string">
+			<column name="idAuteurCreation" length="254" />
 		</property>
-		<property name="idAuteurModification" type="java.lang.Integer">
-			<column name="idAuteurModification" />
+		<property name="idAuteurModification" type="string">
+			<column name="idAuteurModification" length="254" />
 		</property>
+		<set name="addresses" table="aclientsadresses">
+			<key column="idClient" />
+			<many-to-many column="idAdresse" class="Adresses" />
+		</set>
+
 		<set name="commandesProduits" inverse="true" lazy="true" cascade="all">
 			<key>
-				<column name="idClient" not-null="true" />
+				<column name="idClient" not-null="false" />
 			</key>
 			<one-to-many class="Commandes" />
 		</set>
+		<set name="comptesbancaires" inverse="true" lazy="true" cascade="all">
+			<key>
+				<column name="idClient" not-null="false" />
+			</key>
+			<one-to-many class="Commandesproduits" />
+		</set>
+
+		<many-to-one name="typeClient" outer-join="false" cascade="none"
+			class="Typeclients">
+			<column name="idType" not-null="false" />
+		</many-to-one>
+
+		<many-to-one name="typeEtatClient" outer-join="false"
+			cascade="none" class="Typeetatclient">
+			<column name="idEtatClient" not-null="false" />
+		</many-to-one>
 
 	</class>
 </hibernate-mapping>

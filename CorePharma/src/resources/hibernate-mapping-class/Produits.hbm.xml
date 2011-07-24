@@ -1,45 +1,59 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 12 juil. 2011 22:46:19 by Hibernate Tools 3.3.0.GA -->
+	<!-- Generated 17 juil. 2011 15:22:45 by Hibernate Tools 3.3.0.GA -->
 <hibernate-mapping>
-    <class name="Produits" table="produits" catalog="corepharma">
-        <id name="idProduit" type="java.lang.Integer">
-            <column name="idProduit" />
-            <generator class="identity" />
-        </id>
-        <property name="idAlarme" type="java.lang.Integer">
-            <column name="idAlarme" />
-        </property>
-        <property name="nomProduit" type="string">
-            <column name="nomProduit" length="254" />
-        </property>
-        <property name="codeProduit" type="string">
-            <column name="codeProduit" length="254" />
-        </property>
-        <property name="prixProduit" type="java.lang.Integer">
-            <column name="prixProduit" precision="8" scale="0" />
-        </property>
-        <property name="quantiteActuel" type="java.lang.Integer">
-            <column name="quantiteActuel" />
-        </property>
-        <property name="quantiteAlarme" type="java.lang.Integer">
-            <column name="quantiteAlarme" />
-        </property>
-        <property name="datePeremption" type="string">
-            <column name="datePeremption" length="254" />
-        </property>
-        <property name="dateCreation" type="string">
-            <column name="dateCreation" length="254" />
-        </property>
-        <property name="dateModification" type="string">
-            <column name="dateModification" length="254" />
-        </property>
-        <property name="idAuteurCreation" type="java.lang.Integer">
-            <column name="idAuteurCreation" />
-        </property>
-        <property name="idAuteurModification" type="java.lang.Integer">
-            <column name="idAuteurModification" />
-        </property>
-    </class>
+	<class name="Produits" table="produits" catalog="corepharma">
+		<id name="idProduit" type="java.lang.Integer">
+			<column name="idProduit" />
+			<generator class="identity" />
+		</id>
+		<property name="idGestion" type="java.lang.Integer">
+			<column name="idGestion" />
+		</property>
+		<property name="idAlarme" type="java.lang.Integer">
+			<column name="idAlarme" />
+		</property>
+		<property name="nomProduit" type="string">
+			<column name="nomProduit" length="254" />
+		</property>
+		<property name="codeProduit" type="string">
+			<column name="codeProduit" length="254" />
+		</property>
+		<property name="prixProduit" type="java.lang.Integer">
+			<column name="prixProduit" precision="8" scale="0" />
+		</property>
+		<property name="quantiteActuel" type="java.lang.Integer">
+			<column name="quantiteActuel" />
+		</property>
+		<property name="quantiteAlarme" type="java.lang.Integer">
+			<column name="quantiteAlarme" />
+		</property>
+		<property name="datePeremption" type="string">
+			<column name="datePeremption" length="254" />
+		</property>
+		<property name="dateCreation" type="string">
+			<column name="dateCreation" length="254" />
+		</property>
+		<property name="dateModification" type="string">
+			<column name="dateModification" length="254" />
+		</property>
+		<property name="idAuteurCreation" type="java.lang.Integer">
+			<column name="idAuteurCreation" />
+		</property>
+		<property name="idAuteurModification" type="java.lang.Integer">
+			<column name="idAuteurModification" />
+		</property>
+
+		<set name="venteProduits" inverse="true" table="aproduitsventes">
+			<key column="idProduit" />
+			<many-to-many column="idVente" class="Ventes" />
+		</set>
+
+		<set name="commandesProduits" inverse="true" table="acommandesproduits">
+			<key column="idProduit" />
+			<many-to-many column="idCommande" class="Commandes" />
+		</set>
+
+	</class>
 </hibernate-mapping>

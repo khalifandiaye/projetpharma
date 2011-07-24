@@ -1,30 +1,47 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 12 juil. 2011 22:46:19 by Hibernate Tools 3.3.0.GA -->
+	<!-- Generated 17 juil. 2011 15:22:45 by Hibernate Tools 3.3.0.GA -->
 <hibernate-mapping>
-    <class name="Comptesbancaires" table="comptesbancaires" catalog="corepharma">
-        <id name="idCompte" type="java.lang.Integer">
-            <column name="idCompte" />
-            <generator class="identity" />
-        </id>
-        <property name="codeBanque" type="string">
-            <column name="codeBanque" length="254" />
-        </property>
-        <property name="codeGuichet" type="string">
-            <column name="codeGuichet" length="254" />
-        </property>
-        <property name="numeroCompte" type="string">
-            <column name="numeroCompte" length="254" />
-        </property>
-        <property name="cleRib" type="string">
-            <column name="cleRib" length="254" />
-        </property>
-        <property name="iban" type="string">
-            <column name="iban" length="254" />
-        </property>
-        <property name="bicAdresseSwift" type="string">
-            <column name="bicAdresseSwift" length="254" />
-        </property>
-    </class>
+	<class name="Comptesbancaires" table="comptesbancaires" catalog="corepharma">
+		<id name="idCompte" type="java.lang.Integer">
+			<column name="idCompte" />
+			<generator class="identity" />
+		</id>
+		<property name="idClient" type="java.lang.Integer">
+			<column name="idClient" />
+		</property>
+		<property name="idFournisseur" type="java.lang.Integer">
+			<column name="idFournisseur" />
+		</property>
+		<property name="codeBanque" type="string">
+			<column name="codeBanque" length="254" />
+		</property>
+		<property name="codeGuichet" type="string">
+			<column name="codeGuichet" length="254" />
+		</property>
+		<property name="numeroCompte" type="string">
+			<column name="numeroCompte" length="254" />
+		</property>
+		<property name="cleRib" type="string">
+			<column name="cleRib" length="254" />
+		</property>
+		<property name="iban" type="string">
+			<column name="iban" length="254" />
+		</property>
+		<property name="bicAdresseSwift" type="string">
+			<column name="bicAdresseSwift" length="254" />
+		</property>
+
+		<many-to-one name="client" outer-join="false" cascade="none"
+			class="Clients">
+			<column name="idClient" not-null="false" />
+		</many-to-one>
+
+		<many-to-one name="fournisseur" outer-join="false"
+			cascade="none" class="Fournisseurs">
+			<column name="idFournisseur" not-null="false" />
+		</many-to-one>
+
+	</class>
 </hibernate-mapping>

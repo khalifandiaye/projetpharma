@@ -1,7 +1,7 @@
 package corepharma.domain;
 
 // default package
-// Generated 12 juil. 2011 22:37:21 by Hibernate Tools 3.3.0.GA
+// Generated 16 juil. 2011 14:29:33 by Hibernate Tools 3.3.0.GA
 
 import java.util.Set;
 
@@ -19,14 +19,13 @@ import javax.persistence.Table;
 @Table(name = "clients", catalog = "corepharma")
 public class Clients implements java.io.Serializable {
 
-	
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 6326957720536875171L;
-	
+	private static final long serialVersionUID = 6795514779346446239L;
 	private Integer idClient;
 	private Integer idType;
+	private Integer idGestion;
 	private Integer idEtatClient;
 	private String nom;
 	private String prenom;
@@ -35,19 +34,22 @@ public class Clients implements java.io.Serializable {
 	private String numeroIdentification;
 	private String dateCreation;
 	private String dateModification;
-	private Integer idAuteurCreation;
-	private Integer idAuteurModification;
+	private String idAuteurCreation;
+	private String idAuteurModification;
 	private Set<Commandes> commandesProduits;
-
+	private Set<Adresses> addresses;
+	private Set<Comptesbancaires> comptesbancaires;
+	
 	public Clients() {
 	}
 
-	public Clients(Integer idType, Integer idEtatClient, String nom,
-			String prenom, String tel, String email,
+	public Clients(Integer idType, Integer idGestion, Integer idEtatClient,
+			String nom, String prenom, String tel, String email,
 			String numeroIdentification, String dateCreation,
-			String dateModification, Integer idAuteurCreation,
-			Integer idAuteurModification) {
+			String dateModification, String idAuteurCreation,
+			String idAuteurModification) {
 		this.idType = idType;
+		this.idGestion = idGestion;
 		this.idEtatClient = idEtatClient;
 		this.nom = nom;
 		this.prenom = prenom;
@@ -78,6 +80,15 @@ public class Clients implements java.io.Serializable {
 
 	public void setIdType(Integer idType) {
 		this.idType = idType;
+	}
+
+	@Column(name = "idGestion")
+	public Integer getIdGestion() {
+		return this.idGestion;
+	}
+
+	public void setIdGestion(Integer idGestion) {
+		this.idGestion = idGestion;
 	}
 
 	@Column(name = "idEtatClient")
@@ -152,21 +163,21 @@ public class Clients implements java.io.Serializable {
 		this.dateModification = dateModification;
 	}
 
-	@Column(name = "idAuteurCreation")
-	public Integer getIdAuteurCreation() {
+	@Column(name = "idAuteurCreation", length = 254)
+	public String getIdAuteurCreation() {
 		return this.idAuteurCreation;
 	}
 
-	public void setIdAuteurCreation(Integer idAuteurCreation) {
+	public void setIdAuteurCreation(String idAuteurCreation) {
 		this.idAuteurCreation = idAuteurCreation;
 	}
 
-	@Column(name = "idAuteurModification")
-	public Integer getIdAuteurModification() {
+	@Column(name = "idAuteurModification", length = 254)
+	public String getIdAuteurModification() {
 		return this.idAuteurModification;
 	}
 
-	public void setIdAuteurModification(Integer idAuteurModification) {
+	public void setIdAuteurModification(String idAuteurModification) {
 		this.idAuteurModification = idAuteurModification;
 	}
 
@@ -178,6 +189,21 @@ public class Clients implements java.io.Serializable {
 		this.commandesProduits = commandesProduits;
 	}
 
-	
+	public Set<Adresses> getAddresses() {
+		return addresses;
+	}
+
+	public void setAddresses(Set<Adresses> addresses) {
+		this.addresses = addresses;
+	}
+
+	public Set<Comptesbancaires> getComptesbancaires() {
+		return comptesbancaires;
+	}
+
+	public void setComptesbancaires(Set<Comptesbancaires> comptesbancaires) {
+		this.comptesbancaires = comptesbancaires;
+	}
+
 	
 }

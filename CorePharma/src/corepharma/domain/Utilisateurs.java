@@ -1,7 +1,9 @@
 package corepharma.domain;
 
 // default package
-// Generated 12 juil. 2011 22:37:21 by Hibernate Tools 3.3.0.GA
+// Generated 16 juil. 2011 14:29:33 by Hibernate Tools 3.3.0.GA
+
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,30 +19,33 @@ import javax.persistence.Table;
 @Table(name = "utilisateurs", catalog = "corepharma")
 public class Utilisateurs implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7592515848903780590L;
 	private Integer idUtilisateur;
-	private Integer idCategorie;
+	private int idCategorie;
 	private String nom;
 	private String prenom;
 	private String tel;
 	private String email;
-	private String pseudo;
 	private String motdepasse;
+	private Set<Adresses> addresses;
 
 	public Utilisateurs() {
 	}
 
-	public Utilisateurs(String pseudo) {
-		this.pseudo = pseudo;
+	public Utilisateurs(int idCategorie) {
+		this.idCategorie = idCategorie;
 	}
 
-	public Utilisateurs(Integer idCategorie, String nom, String prenom,
-			String tel, String email, String pseudo, String motdepasse) {
+	public Utilisateurs(int idCategorie, String nom, String prenom, String tel,
+			String email, String motdepasse) {
 		this.idCategorie = idCategorie;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.tel = tel;
 		this.email = email;
-		this.pseudo = pseudo;
 		this.motdepasse = motdepasse;
 	}
 
@@ -55,12 +60,12 @@ public class Utilisateurs implements java.io.Serializable {
 		this.idUtilisateur = idUtilisateur;
 	}
 
-	@Column(name = "idCategorie")
-	public Integer getIdCategorie() {
+	@Column(name = "idCategorie", nullable = false)
+	public int getIdCategorie() {
 		return this.idCategorie;
 	}
 
-	public void setIdCategorie(Integer idCategorie) {
+	public void setIdCategorie(int idCategorie) {
 		this.idCategorie = idCategorie;
 	}
 
@@ -100,15 +105,6 @@ public class Utilisateurs implements java.io.Serializable {
 		this.email = email;
 	}
 
-	@Column(name = "pseudo", nullable = false, length = 250)
-	public String getPseudo() {
-		return this.pseudo;
-	}
-
-	public void setPseudo(String pseudo) {
-		this.pseudo = pseudo;
-	}
-
 	@Column(name = "motdepasse", length = 254)
 	public String getMotdepasse() {
 		return this.motdepasse;
@@ -118,4 +114,13 @@ public class Utilisateurs implements java.io.Serializable {
 		this.motdepasse = motdepasse;
 	}
 
+	public Set<Adresses> getAddresses() {
+		return addresses;
+	}
+
+	public void setAddresses(Set<Adresses> addresses) {
+		this.addresses = addresses;
+	}
+
+	
 }
