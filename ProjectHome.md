@@ -1,0 +1,1 @@
+Le but du projet est de réaliser un application qui permet de gérer le stock des pharmacies.
